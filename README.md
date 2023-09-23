@@ -29,6 +29,12 @@ exit
 ~~~
 ## 下载（主服务器）脚本执行
  wget 执行脚本
+
+ 国外：  
+~~~
+wget https://raw.githubusercontent.com/xu5343/MYSQL/main/mysql-root.sh && chmod +x mysql-root.sh && sh mysql-root.sh
+~~~
+国内：  
 ~~~
 wget https://dl.yunloc.com/Shell/mysql/mysql-root.sh && chmod +x mysql-root.sh && sh mysql-root.sh
 ~~~
@@ -52,7 +58,12 @@ File 值：mysql-bin.000033 Position 值：272 请记好，下面配置从服务
 
 ## 下载（从服务器）脚本执行
 
-或者直接 wget 执行脚本
+wget 执行脚本
+国外：  
+~~~
+wget https://raw.githubusercontent.com/xu5343/MYSQL/main/mysql-server.sh && chmod +x mysql-server.sh && sh mysql-server.sh
+~~~
+国内：  
 ~~~
 wget https://dl.yunloc.com/Shell/mysql/mysql-server.sh && chmod +x mysql-server.sh && sh mysql-server.sh
 ~~~
