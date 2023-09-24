@@ -9,7 +9,7 @@ default()
 {
 echo "+-------------------------+";
 echo "时间:2019/09/05";
-echo -e "\033[32m更多信息请访问:\033[0m https://www.yunloc.com/510.html";
+echo -e "\033[32m更多信息请访问:\033[0m https://www.baidu.com/";
 echo "+-------------------------+";
 if [ ! -e /etc/my.cnf ]; then
 echo "/etc/my.cnf 文件不存在";
@@ -28,14 +28,14 @@ if [ "${server_ip}" == "" ]; then
 echo "服务器IP不能为空";
 exit
 fi
-read -p "请输入备份副本用户:" backup_user
+read -p "请输入从用户名:" backup_user
 if [ "${backup_user}" == "" ]; then
-echo "备份复制用户不能为空";
+echo "从用户不能为空";
 exit
 fi
-read -p "备份复制用户密码:" backup_user_password
+read -p "从用户密码:" backup_user_password
 if [ "${backup_user_password}" == "" ]; then
-echo "备份复制用户密码不能为空";
+echo "从用户密码不能为空";
 exit
 fi
 read -p "填写File的值（例如: mysql-bin.xxxxxx）:" mysql_bin
