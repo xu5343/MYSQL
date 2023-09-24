@@ -8,7 +8,7 @@ fi
 default()
 {
 echo "+-------------------------+";
-echo "时间:2023/09/24";
+echo "时间:2019/09/05";
 echo -e "\033[32m更多信息请访问:\033[0m https://www.yunloc.com/510.html";
 echo "+-------------------------+";
 if [ ! -e /etc/my.cnf ]; then
@@ -56,7 +56,15 @@ sed -i '/skip-external-locking/a\binlog-ignore-db=mysql' /etc/my.cnf
 else
 sed -i "/skip-external-locking/a\\binlog-do-db=${Database_name}" /etc/my.cnf
 fi
-sed -i '/skip-external-locking/a\read_only' /etc/my.cnf
+read -p "是否将数据库设置为只读模式?（yes/no）:" read_only_choice
+if [ "${read_only_choice}" == "yes" ]; then
+  sed -i '/skip-external-locking/a\read_only' /etc/my.cnf
+elif [ "${read_only_choice}" == "no" ]; then
+  sed -i '/skip-external-locking/a\read_only=OFF' /etc/my.cnf
+else
+  echo "输入无效，请输入yes或no"
+  exit
+fi
 sed -i '/skip-external-locking/a\log-bin=mysql-bin' /etc/my.cnf
 sed -i "/skip-external-locking/a\\server-id=${Service_ID}" /etc/my.cnf
 service mysql restart 1>/dev/null 2>&1
